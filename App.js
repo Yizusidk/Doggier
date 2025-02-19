@@ -19,13 +19,11 @@ const Stack = createStackNavigator();
 
 export default function App() {
   useEffect(() => {
-    // Solicitar permiso para notificaciones
     async function requestPermissions() {
       await Notifications.requestPermissionsAsync();
     }
     requestPermissions();
 
-    // Manejar la recepción de notificaciones
     const subscription = Notifications.addNotificationReceivedListener(notification => {
       console.log('Notificación recibida:', notification);
     });
